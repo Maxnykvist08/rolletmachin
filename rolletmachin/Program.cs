@@ -2,12 +2,24 @@
 
 Console.Write("put in totel amount =");
 bool vaidnumber = false;
-string inputsumma = Console.ReadLine();
-int summa = Convert.ToInt32(inputsumma);
+string inputsumma;
+int summa = 0;
+while (!vaidnumber)
+{
+    inputsumma = Console.ReadLine();
+    summa = Convert.ToInt32(inputsumma);
+    if (summa >0)
+    {
+        vaidnumber = true;
+    }else {
+        Console.WriteLine("invalid number");
+            }
+}
 
 Random random = new Random();
-
+vaidnumber = false;
 bool playagain = false;
+bool betagain = false;
 while(playagain == false) 
 { 
 
@@ -17,6 +29,7 @@ int loss = 0;
 
 
 Console.Write("totel bet =");
+    vaidnumber = false;
 
 string inputbetsumma ;
     int betsumma = 0;
@@ -24,11 +37,11 @@ string inputbetsumma ;
     {
         inputbetsumma = Console.ReadLine();
         betsumma = Convert.ToInt32(inputbetsumma);
-        if (betsumma <= summa)
+        if (betsumma <= summa && betsumma>0)
         {
             vaidnumber = true;
         }
-        else { Console.WriteLine("unvalid bet"); }
+        else { Console.WriteLine("invalid bet"); }
     }
 
 Console.Clear();
@@ -52,8 +65,9 @@ Console.WriteLine("input corosponding number to play style");
         if (playnumber >=1 && playnumber <= 10)
         {
             vaidnumber = true;
-        }else { Console.WriteLine("unvalid number"); }
+        }else { Console.WriteLine("invalid number"); }
     }
+
 Console.Clear();
 int betnumber;
 string inputnumer;
@@ -147,12 +161,12 @@ else if (playnumber == 10)
     }
     winnings = betsumma * 2;
 }
-    Console.WriteLine(number);
+    Console.WriteLine( "wining number " + number);
 
     if (contener.Contains(number))
 {
     Console.WriteLine(betplay[playnumber -1 ] + " " + "won");
-    Console.WriteLine(winnings + "$");
+    Console.WriteLine("you get " +winnings + "$ back ");
     Console.WriteLine("totel winings ="+( summa + winnings) + "$");
     summa = summa + winnings;
     }
@@ -165,27 +179,24 @@ else
     }
     if (summa <= 0)
     {
-        Console.WriteLine("out of money, do you want to put in more? yes or no");
+        Console.WriteLine("out of money, do you want to put in more? enter for yes, space for no");
         
-        string outofmoney = Console.ReadLine();
-        if (outofmoney == "yes")
+        
+        if (Console.ReadKey().Key == ConsoleKey.Enter)
         {
             Console.Write("put in totel amount =");
              inputsumma = Console.ReadLine();
              summa = Convert.ToInt32(inputsumma);
         }
-        else if (outofmoney == "no")
+        else if (Console.ReadKey().Key== ConsoleKey.Spacebar)
         {
           System.Environment.Exit(0);
         }
     }
-    Console.WriteLine("do you want to play again, yes or no");
-    string yesorno = Console.ReadLine();
-    if (yesorno == "yes ")
-    {
-        playagain = false;
-    }
-    else if (yesorno == "no")
+    Console.WriteLine("do you want to play again, enter for yes, space for no");
+    
+   
+    if (Console.ReadKey().Key == ConsoleKey.Spacebar)
     {
         playagain = true;
     }
