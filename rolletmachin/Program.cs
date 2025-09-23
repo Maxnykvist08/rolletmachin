@@ -77,7 +77,7 @@ int winnings = 0;
 
 if (playnumber == 1)
 {
-    Console.WriteLine(" mellan 0 och 36");
+    Console.WriteLine(" place a bet on a number betwin 0 - 36");
     inputnumer = Console.ReadLine();
     betnumber = Convert.ToInt32(inputnumer);
     contener.Add(betnumber);
@@ -161,6 +161,19 @@ else if (playnumber == 10)
     }
     winnings = betsumma * 2;
 }
+ Random rad = new Random();
+    int radnum = 0;
+
+for (int i = 0; i< 36; i++)
+    {
+        radnum= rad.Next(36);
+        Console.WriteLine(radnum);
+        Thread.Sleep(100);
+        Console.Clear();
+
+
+    }
+    Thread.Sleep(1000);
     Console.WriteLine( "wining number " + number);
 
     if (contener.Contains(number))
