@@ -232,10 +232,10 @@ else if (playnumber == 10)
         loss = loss  - betsumma;
         Console.WriteLine("house won");
         Console.WriteLine("total loss =" + (loss) + "$");
-        summa = summa - betsumma;
+        
         
     }
-    summa = summa + betsumma;
+   
     if (summa <= 0)
     {
         Console.WriteLine("out of money, do you want to put in more? enter for yes, space for no");
