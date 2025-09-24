@@ -94,7 +94,7 @@ if (playnumber == 1)
         {
             inputnumer = Console.ReadLine();
             betnumber = Convert.ToInt32(inputnumer);
-            if ( betnumber>=1 && betnumber <= 36)
+            if ( betnumber>=0 && betnumber <= 36)
             {
                 vaidnumber= true;
                 contener.Add(betnumber);
