@@ -1,6 +1,6 @@
 ﻿
 
-Console.Write("put in totel amount =");
+Console.Write("put in total amount =");
 bool vaidnumber = false;
 string inputsumma;
 int summa = 0;
@@ -31,7 +31,7 @@ int loss = 0;
     Console.WriteLine("you have " + summa + "$");
     
 
-Console.Write("totel bet =");
+Console.Write("total bet =");
     vaidnumber = false;
 
 string inputbetsumma ;
@@ -173,10 +173,16 @@ else if (playnumber == 10)
 
     for (int i = 0; i< 36; i++)
     {
-        number= random.Next(36);
+        Console.Clear();
+        number = random.Next(36);
         if(number== 1|| number== 3 || number == 5 || number == 7 || number == 9 || number == 12 || number == 14 || number == 16 || number == 18 || number == 19 || number == 21 || number == 23 || number == 25 || number == 27 || number == 30 || number == 32 || number == 34 || number == 36)
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(number);
+        }
+        else if (number == 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(number);
         }
         else {Console.ForegroundColor = ConsoleColor.White;
@@ -185,7 +191,7 @@ else if (playnumber == 10)
         
 
         Thread.Sleep(100);
-        Console.Clear();
+        
 
 
     }
@@ -198,13 +204,13 @@ else if (playnumber == 10)
 {
     Console.WriteLine(betplay[playnumber -1 ] + " " + "won");
     Console.WriteLine("you get " +winnings + "$ back ");
-    Console.WriteLine("totel winings ="+( summa + winnings) + "$");
+    Console.WriteLine("total winings ="+( summa + winnings) + "$");
     summa = summa + winnings;
     }
 else
 {
     Console.WriteLine("house won");
-        Console.WriteLine("totel loss =" + (summa - betsumma) + "$");
+        Console.WriteLine("total loss =" + (summa - betsumma) + "$");
         summa = summa - betsumma;
         loss = loss + betsumma;
     }
@@ -215,7 +221,7 @@ else
         
         if (Console.ReadKey().Key == ConsoleKey.Enter)
         {
-            Console.Write("put in totel amount =");
+            Console.Write("put in total amount =");
              inputsumma = Console.ReadLine();
              summa = Convert.ToInt32(inputsumma);
         }
