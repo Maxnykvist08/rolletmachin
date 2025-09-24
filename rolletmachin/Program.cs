@@ -4,6 +4,7 @@ Console.Write("put in totel amount =");
 bool vaidnumber = false;
 string inputsumma;
 int summa = 0;
+
 while (!vaidnumber)
 {
     inputsumma = Console.ReadLine();
@@ -27,6 +28,8 @@ while(playagain == false)
 int number = random.Next(36);
 int loss = 0;
 
+    Console.WriteLine("you have " + summa + "$");
+    
 
 Console.Write("totel bet =");
     vaidnumber = false;
@@ -45,6 +48,7 @@ string inputbetsumma ;
     }
 
 Console.Clear();
+        Console.WriteLine("you have" + summa+ "$");
 List<string> betplay = [ "numer", "red","black", "even"," odd", "1 to 18", "19 to 36", "1st 12", "2nd 12", "3rd 12"];
 
 for (int i = 0; i < betplay.Count; i++)
@@ -161,18 +165,32 @@ else if (playnumber == 10)
     }
     winnings = betsumma * 2;
 }
- Random rad = new Random();
-    int radnum = 0;
 
-for (int i = 0; i< 36; i++)
+    
+    
+    
+    
+
+    for (int i = 0; i< 36; i++)
     {
-        radnum= rad.Next(36);
-        Console.WriteLine(radnum);
+        number= random.Next(36);
+        if(number== 1|| number== 3 || number == 5 || number == 7 || number == 9 || number == 12 || number == 14 || number == 16 || number == 18 || number == 19 || number == 21 || number == 23 || number == 25 || number == 27 || number == 30 || number == 32 || number == 34 || number == 36)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(number);
+        }
+        else {Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(number);
+             }
+        
+
         Thread.Sleep(100);
         Console.Clear();
 
 
     }
+    
+    Console.ForegroundColor = ConsoleColor.White;
     Thread.Sleep(1000);
     Console.WriteLine( "wining number " + number);
 
