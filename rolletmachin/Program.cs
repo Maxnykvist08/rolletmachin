@@ -187,15 +187,16 @@ else if (playnumber == 10)
 }
 
     
-    
-    
-    
+    List<int> röd = new List<int>();
+    röd = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+
+
 
     for (int i = 0; i< 36; i++)
     {
         Console.Clear();
         number = random.Next(36);
-        if(number== 1|| number== 3 || number == 5 || number == 7 || number == 9 || number == 12 || number == 14 || number == 16 || number == 18 || number == 19 || number == 21 || number == 23 || number == 25 || number == 27 || number == 30 || number == 32 || number == 34 || number == 36)
+        if(röd.Contains(number))
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(number);
