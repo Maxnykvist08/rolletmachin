@@ -21,12 +21,20 @@ Random random = new Random();
 vaidnumber = false;
 bool playagain = false;
 bool betagain = false;
-while(playagain == false) 
+int loss = 0;
+string inputbetsumma;
+int betsumma = 0;
+string playinput;
+int playnumber = 0;
+int betnumber;
+string inputnumer;
+int winnings = 0;
+while (playagain == false) 
 { 
 
     Console.Clear();
 int number = random.Next(36);
-int loss = 0;
+
 
     Console.WriteLine("you have " + summa + "$");
     
@@ -34,8 +42,7 @@ int loss = 0;
 Console.Write("total bet =");
     vaidnumber = false;
 
-string inputbetsumma ;
-    int betsumma = 0;
+
     while (!vaidnumber)
     {
         inputbetsumma = Console.ReadLine();
@@ -48,7 +55,8 @@ string inputbetsumma ;
     }
 
 Console.Clear();
-        Console.WriteLine("you have" + summa+ "$");
+    summa = summa - betsumma;
+        Console.WriteLine("you have bet " + betsumma+ "$");
 List<string> betplay = [ "numer", "red","black", "even"," odd", "1 to 18", "19 to 36", "1st 12", "2nd 12", "3rd 12"];
 
 for (int i = 0; i < betplay.Count; i++)
@@ -59,8 +67,7 @@ for (int i = 0; i < betplay.Count; i++)
 }
 
 Console.WriteLine("input corosponding number to play style");
-    string playinput;
-    int playnumber = 0;
+    
     vaidnumber = false;
     while (!vaidnumber)
     {
@@ -73,11 +80,10 @@ Console.WriteLine("input corosponding number to play style");
     }
 
 Console.Clear();
-int betnumber;
-string inputnumer;
+
 
 List <int> contener = new List<int>();
-int winnings = 0;
+
 
 if (playnumber == 1)
 {
@@ -207,12 +213,7 @@ else if (playnumber == 10)
     
     Console.WriteLine("total winings ="+( summa + winnings + loss) + "$");
     summa = summa + winnings;
-    }
-    else if (summa< 0)
-    {
-
-    }
-else
+    }else
 {
         loss = loss  - betsumma;
         Console.WriteLine("house won");
@@ -220,10 +221,11 @@ else
         summa = summa - betsumma;
         
     }
+    summa = summa + betsumma;
     if (summa <= 0)
     {
         Console.WriteLine("out of money, do you want to put in more? enter for yes, space for no");
-        
+        loss = loss - summa - betsumma;
         
         if (Console.ReadKey().Key == ConsoleKey.Enter)
         {
