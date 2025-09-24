@@ -204,15 +204,21 @@ else if (playnumber == 10)
 {
     Console.WriteLine(betplay[playnumber -1 ] + " " + "won");
     Console.WriteLine("you get " +winnings + "$ back ");
-    Console.WriteLine("total winings ="+( summa + winnings) + "$");
+    
+    Console.WriteLine("total winings ="+( summa + winnings + loss) + "$");
     summa = summa + winnings;
+    }
+    else if (summa< 0)
+    {
+
     }
 else
 {
-    Console.WriteLine("house won");
-        Console.WriteLine("total loss =" + (summa - betsumma) + "$");
+        loss = loss  - betsumma;
+        Console.WriteLine("house won");
+        Console.WriteLine("total loss =" + (loss) + "$");
         summa = summa - betsumma;
-        loss = loss + betsumma;
+        
     }
     if (summa <= 0)
     {
@@ -222,8 +228,22 @@ else
         if (Console.ReadKey().Key == ConsoleKey.Enter)
         {
             Console.Write("put in total amount =");
-             inputsumma = Console.ReadLine();
-             summa = Convert.ToInt32(inputsumma);
+            vaidnumber = false;
+             
+
+            while (!vaidnumber)
+            {
+                inputsumma = Console.ReadLine();
+                summa = Convert.ToInt32(inputsumma);
+                if (summa > 0)
+                {
+                    vaidnumber = true;
+                }
+                else
+                {
+                    Console.WriteLine("invalid number");
+                }
+            }
         }
         else if (Console.ReadKey().Key== ConsoleKey.Spacebar)
         {
