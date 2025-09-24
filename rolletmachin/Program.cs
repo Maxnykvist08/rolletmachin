@@ -265,7 +265,9 @@ else if (playnumber == 10)
         }
         else if (Console.ReadKey().Key== ConsoleKey.Spacebar)
         {
-          System.Environment.Exit(0);
+            Console.WriteLine("thanks for playing");
+            Thread.Sleep(1000);
+            System.Environment.Exit(0);
         }
     }
     Console.WriteLine("do you want to play again, enter for yes, space for no");
@@ -273,7 +275,10 @@ else if (playnumber == 10)
    
     if (Console.ReadKey().Key == ConsoleKey.Spacebar)
     {
+        Console.WriteLine("thanks for playing");
+        Thread.Sleep(1000);
         playagain = true;
+        
     }
 
 
