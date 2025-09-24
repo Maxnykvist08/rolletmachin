@@ -228,6 +228,7 @@ else if (playnumber == 10)
     
     Console.WriteLine("total winings ="+( summa + winnings + loss) + "$");
     summa = summa + winnings;
+        loss = loss + betsumma;
     }else
 {
         loss = loss  - betsumma;
@@ -240,7 +241,7 @@ else if (playnumber == 10)
     if (summa <= 0)
     {
         Console.WriteLine("out of money, do you want to put in more? enter for yes, space for no");
-        loss = loss - summa - betsumma;
+        loss = loss - summa ;
         
         if (Console.ReadKey().Key == ConsoleKey.Enter)
         {
