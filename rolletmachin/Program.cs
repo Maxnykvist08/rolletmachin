@@ -84,21 +84,35 @@ Console.Clear();
 
 List <int> contener = new List<int>();
 
-
+    
 if (playnumber == 1)
-{
+    {
     Console.WriteLine(" place a bet on a number betwin 0 - 36");
-    inputnumer = Console.ReadLine();
-    betnumber = Convert.ToInt32(inputnumer);
-    contener.Add(betnumber);
-    winnings = betsumma * 36;
-    if (betnumber == 0)
+   
+   vaidnumber = false ;
+        while (!vaidnumber)
         {
-            winnings = betsumma + loss *36;
+            inputnumer = Console.ReadLine();
+            betnumber = Convert.ToInt32(inputnumer);
+            if ( betnumber>=1 && betnumber <= 36)
+            {
+                vaidnumber= true;
+                contener.Add(betnumber);
+                winnings = betsumma * 36;
+            }
+            else { Console.WriteLine("invalid number"); }
+            if (betnumber == 0)
+            {
+                winnings =( betsumma - loss) * 36;
+            }
         }
+ 
+
+   
     
 
-}else if (playnumber == 2)
+}
+    else if (playnumber == 2)
 {
     contener = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
     winnings = betsumma * 2;
